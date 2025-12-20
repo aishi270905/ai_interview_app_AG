@@ -5,6 +5,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import SignUp from './authPages/SignUp'
 import Login from './authPages/Login'
+import Assignments from './allPages/Assignments/Assignments'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/auth/login" element={<Login />} />
+      <Route path="/assignments" element={<Assignments />} />
     </Routes>
   </div>
   )

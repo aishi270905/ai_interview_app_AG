@@ -1,2 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+.cr {
+  font-family: "Comic Relief", system-ui;
+  font-style: normal;
+}
+
+.navbar-hover-effect{
+    @apply hover:text-red-300 transition-all duration-300 hover:scale-[1.1] cursor-pointer;
+}

@@ -9,9 +9,9 @@ import {
   FaTimes
 } from "react-icons/fa";
 
-export default function Sidebar({openSideBar}) {
+export default function Sidebar({openSideBar, isOpen}) {
   return (
-    <div className="fixed top-0 left-0 h-screen w-[75%] bg-blue-200 shadow-lg z-[9999] p-5 flex flex-col justify-between">
+    <div className={`fixed top-0 left-0 h-screen w-[75%] bg-blue-200 shadow-lg z-[9999] p-5 transition transform duration-300 flex flex-col justify-between  ${isOpen == true ? "-translate-x-0":"-translate-x-full"}`}>
 
       {/* HEADER WITH CLOSE BUTTON */}
       <div>

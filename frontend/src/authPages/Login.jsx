@@ -8,9 +8,6 @@ export default function Login() {
     password: ""
   });
   const navigate = useNavigate();
-  function navigateToHome(){
-    navigate("/choose-skills");
-  }
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,7 +25,7 @@ export default function Login() {
       if (res.data.success) {
         alert("Login successful");
         console.log("User:", res.data.user);
-        navigateToHome();
+        navigate("/choose-skills");
         // Example: store token
         // localStorage.setItem("token", res.data.token);
       } else {

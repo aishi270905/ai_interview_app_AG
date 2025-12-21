@@ -14,11 +14,11 @@ import Sidebar from "../../Components/Sidebar";
 export default function Dashboard() {
     const [openSideBar, setOpenSideBar] = useState(false);
   return (
-    <div className="min-h-screen bg-blue-50 md:flex md:items-center md:justify-center md:p-4 p-0">
+    <div className="h-screen bg-blue-50 md:flex md:items-center md:justify-center md:p-4 p-0 overflow-hidden">
       <div className="relative w-full h-full bg-white shadow-2xl md:rounded-xl overflow-hidden flex flex-col lg:flex-row">
 
         {/* ---------- Sidebar ---------- */}
-        {openSideBar == true ? <Sidebar openSideBar={()=> setOpenSideBar(false)}/> : ""}
+        <Sidebar isOpen={openSideBar} openSideBar={()=> setOpenSideBar(false)}/>
         <div className="h-10 bg-blue-600 md:hidden flex items-center pl-2"><FiAlignJustify onClick={()=>setOpenSideBar(!openSideBar)} className="text-[5vh] text-white"/></div>
         <div className="hidden md:block lg:w-[22%] w-full bg-blue-200 p-6 flex lg:flex-col flex-row lg:justify-between justify-center gap-4 lg:gap-0">
 
@@ -65,7 +65,7 @@ export default function Dashboard() {
         </div>
 
         {/* ---------- Main Content ---------- */}
-        <div className="lg:w-[78%] w-full bg-white p-6 lg:p-10 overflow-y-auto">
+        <div className="lg:w-[78%] w-full bg-white p-6 lg:p-10 overflow-hidden">
 
           {/* Search Bar */}
           <div className="flex items-center bg-blue-100 border border-blue-300 rounded-full px-5 py-2 w-full lg:w-[80%]">

@@ -11,7 +11,7 @@ function Navbar({isActive}) {
             <div className={`navbar-hover-effect ${isActive === 1 ? effect : ""}`}>Home</div>
             <div className={`navbar-hover-effect ${isActive === 2 ? effect : ""}`}>Assignments</div>
             <div className={`navbar-hover-effect ${isActive === 3 ? effect : ""}`}>Mock Test</div>
-      <     div className={`navbar-hover-effect ${isActive === 4 ? effect : ""}`}>Live Coding</div>
+            <div className={`navbar-hover-effect ${isActive === 4 ? effect : ""}`}>Live Coding</div>
         </div>
     </div>
   )

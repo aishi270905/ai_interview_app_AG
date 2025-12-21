@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: ""
   });
-
+  const navigate = useNavigate();
+  function navigateToHome(){
+    navigate("/choose-skills");
+  }
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,7 +28,7 @@ export default function Login() {
       if (res.data.success) {
         alert("Login successful");
         console.log("User:", res.data.user);
-
+        navigateToHome();
         // Example: store token
         // localStorage.setItem("token", res.data.token);
       } else {

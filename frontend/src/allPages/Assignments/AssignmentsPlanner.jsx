@@ -9,10 +9,11 @@ import {
   FaSignOutAlt, 
   FaSearch,
 } from "react-icons/fa";
+import { IoAddSharp } from "react-icons/io5";
 import { FiAlignJustify } from "react-icons/fi";
 import Sidebar from "../../Components/Sidebar";
 import { useNavigate } from "react-router-dom";
-export default function Dashboard() {
+export default function AssignmentsPlanner() {
     const [openSideBar, setOpenSideBar] = useState(false);
     const navigate = useNavigate();
   return (
@@ -32,7 +33,7 @@ export default function Dashboard() {
             </div>
 
             <div className="space-y-4">
-              <button className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow" onClick={()=>navigate("/mocktest")}>
+              <button onClick={()=>navigate("/mocktest")} className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow">
                 <FaBook /> MOCK TEST
               </button>
 
@@ -69,59 +70,72 @@ export default function Dashboard() {
         {/* ---------- Main Content ---------- */}
         <div className="lg:w-[78%] w-full bg-white p-6 lg:p-10 overflow-hidden">
 
-          {/* Search Bar */}
-          <div className="flex items-center bg-blue-100 border border-blue-300 rounded-full px-5 py-2 w-full lg:w-[80%]">
-            <input
-              className="bg-transparent outline-none flex-1 text-sm lg:text-base"
-              placeholder="Choose your skill..."
-            />
-            <button className="cursor-pointer bg-blue-500 text-white px-4 py-1 rounded-full flex items-center gap-2 text-sm lg:text-base">
-              <FaSearch /> Search
-            </button>
-          </div>
-
-          {/* Skill Chips */}
-          <p className="mt-6 font-semibold text-gray-700 text-sm lg:text-base">
-            Most Frequently Selected Skills
+          {/* Header */}
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-xl lg:text-2xl font-bold text-gray-800">
+            ASSIGNMENTS & PLANNER
+          </h1>
+          <p className="text-gray-600 text-sm lg:text-base">
+            manage your coding tasks and stay on top of your schedule.
           </p>
+            </div>
 
-          <div className="flex gap-3 lg:gap-4 mt-3 flex-wrap">
-            <button className="cursor-pointer px-5 py-2 bg-blue-100 hover:bg-blue-300 rounded-full shadow text-sm lg:text-base">
-              Java
-            </button>
+          <button className="cursor-pointer bg-blue-500 flex items-center gap-2 hover:bg-blue-600 text-white px-6 py-2 rounded-md shadow"><IoAddSharp className="text-xl"/>Add New Skill</button>
+          </div>
 
-            <button className="cursor-pointer px-5 py-2 bg-blue-100 hover:bg-blue-300 rounded-full shadow text-sm lg:text-base">
-              JavaScript
-            </button>
+          {/* Completed / Pending */}
+          <div className="flex justify-center gap-6 mt-6 flex-wrap">
+            <StatusBox label="Completed" value="9" />
+            <StatusBox label="Pending" value="4" />
+          </div>
 
-            <button className="cursor-pointer px-5 py-2 bg-blue-100 hover:bg-blue-300 rounded-full shadow text-sm lg:text-base">
-              Python
-            </button>
+          {/* Input Card */}
+          <div className="mt-6 border rounded-xl p-6 shadow bg-blue-50 flex flex-col lg:flex-row items-center justify-between gap-4">
+            <div>
+              <p className="text-gray-700 text-sm lg:text-base">
+                Enter the section you want to improve and master your skill...
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                e.g. DSA - Graph | Target Company - Microsoft, Oracle, Uber
+              </p>
+              <input
+      type="text"
+      placeholder="Write here..."
+      className="mt-3 border border-blue-300 rounded-md px-4 py-2 w-full outline-none focus:ring-2 ring-blue-400"
+    />
+            </div>
 
-            <button className="cursor-pointer px-5 py-2 bg-blue-100 hover:bg-blue-300 rounded-full shadow text-sm lg:text-base">
-              Node.js
+            <button className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md shadow">
+              Start Now
             </button>
           </div>
 
-          {/* Reviews Section */}
-          <div className="mt-8 space-y-5">
+          {/* Saved Files */}
+          <h2 className="mt-6 font-semibold text-gray-700">Saved Files</h2>
 
-            {[ "ALEX", "MARIA", "MILAN" ].map((name, i) => (
-              <div key={i} className="border p-4 rounded-md shadow hover:shadow-lg transition">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gray-300"></div>
-                  <p className="font-semibold">{name}</p>
-                </div>
-                <p className="text-sm mt-2 text-gray-600">
-                  It is a great app for improving your interview preparation.
-                  I have been using it for 1.5 years. Great for all level users.
-                </p>
-              </div>
-            ))}
+          <div className="mt-2 border rounded-lg h-[180px] p-3 overflow-y-auto space-y-2">
+
+           {/* Map here  */}
+            <div className="border p-3 rounded-md shadow bg-white">
+              1) Saved File Name
+            </div>
+            
 
           </div>
+
         </div>
       </div>
+    </div>
+  );
+}
+
+
+function StatusBox({ label, value }) {
+  return (
+    <div className="border rounded-lg shadow bg-white px-6 py-4 flex items-center gap-3">
+      <p className="text-gray-500 text-sm">{label}</p>
+      <h2 className="text-2xl font-bold text-blue-600">{value}</h2>
     </div>
   );
 }

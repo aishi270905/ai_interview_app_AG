@@ -5,8 +5,9 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import SignUp from './authPages/SignUp'
 import Login from './authPages/Login'
-import Assignments from './allPages/Assignments/Assignments'
 import Dashboard from './allPages/DashBoard/Dashboard'
+import AssignmentsPlanner from './allPages/Assignments/AssignmentsPlanner'
+import MockTest from './allPages/MockTests/MockTest'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,7 +18,8 @@ function App() {
       <Route path="/choose-skills" element={<Dashboard />} />
       <Route path="/auth/signup" element={<SignUp />} />
       <Route path="/auth/login" element={<Login />} />
-      <Route path="/assignments" element={<Assignments />} />
+      <Route path="/assignmentsplanner" element={<AssignmentsPlanner />} />
+      <Route path="/mocktest" element={<MockTest />} />
     </Routes>
   </div>
   )

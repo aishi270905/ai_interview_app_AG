@@ -24,31 +24,24 @@ export default function AssignmentsPlanner() {
         <Sidebar isOpen={openSideBar} openSideBar={()=> setOpenSideBar(false)}/>
         <div className="h-10 bg-blue-600 md:hidden flex items-center pl-2"><FiAlignJustify onClick={()=>setOpenSideBar(!openSideBar)} className="text-[5vh] text-white"/></div>
         <div className="hidden md:block lg:w-[22%] w-full bg-blue-200 p-6 flex lg:flex-col flex-row lg:justify-between justify-center gap-4 lg:gap-0">
-
-          {/* Top user + menu desktop / hidden on small */}
           <div className="hidden lg:block">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 bg-blue-500 rounded-full"></div>
               <p className="font-semibold">USER_NAME</p>
             </div>
-
             <div className="space-y-4">
               <button onClick={()=>navigate("/mocktest")} className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow">
                 <FaBook /> MOCK TEST
               </button>
-
               <button className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow" onClick={()=>navigate("/assignmentsplanner")}>
                 <FaClipboardList /> ASSIGNMENTS
               </button>
-
               <button className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow">
                 <FaUsers /> CHAT WITH FRIENDS
               </button>
-
               <button className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow">
                 <FaCode /> LIVE CODING
               </button>
-
               <button className="cursor-pointer w-full bg-white hover:bg-blue-300 transition p-3 rounded-md flex items-center gap-3 font-medium shadow">
                 <FaBlog /> YOUR BLOG
               </button>
@@ -69,9 +62,7 @@ export default function AssignmentsPlanner() {
 
         {/* ---------- Main Content ---------- */}
         <div className="lg:w-[78%] w-full bg-white p-6 lg:p-10 overflow-hidden">
-
-          {/* Header */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center md:flex-row flex-col">
             <div>
               <h1 className="text-xl lg:text-2xl font-bold text-gray-800">
             ASSIGNMENTS & PLANNER

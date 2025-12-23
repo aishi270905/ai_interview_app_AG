@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import userModel from "../Models/user.js";
 import bcrypt from "bcrypt";
+import { callGemini } from "../gemini.js";
 
 export  const signup = async (req, res) =>{
   try{
@@ -93,6 +94,5 @@ export const logout = async (req, res) => {
     return res.status(500).json({ message: "Server error", success: false });
   }
 };
-
 
 

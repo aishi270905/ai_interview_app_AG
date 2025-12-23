@@ -8,8 +8,10 @@ import {
   FaSignOutAlt,
   FaTimes
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar({openSideBar, isOpen}) {
+  const navigate = useNavigate();
   return (
     <div className={`fixed top-0 left-0 h-screen w-[75%] bg-blue-200 shadow-lg z-[9999] p-5 transition transform duration-300 flex flex-col justify-between  ${isOpen == true ? "-translate-x-0":"-translate-x-full"}`}>
 
@@ -29,11 +31,11 @@ export default function Sidebar({openSideBar, isOpen}) {
 
         {/* MENU BUTTONS */}
         <div className="space-y-3">
-          <button className="w-full bg-white p-3 rounded-md flex items-center gap-3 font-medium shadow hover:bg-blue-300 transition">
+          <button onClick={()=>navigate("/mocktest")} className="w-full bg-white p-3 rounded-md flex items-center gap-3 font-medium shadow hover:bg-blue-300 transition">
             <FaBook /> MOCK TEST
           </button>
 
-          <button className="w-full bg-white p-3 rounded-md flex items-center gap-3 font-medium shadow hover:bg-blue-300 transition">
+          <button onClick={()=>navigate("/assignmentsplanner")} className="w-full bg-white p-3 rounded-md flex items-center gap-3 font-medium shadow hover:bg-blue-300 transition">
             <FaClipboardList /> ASSIGNMENTS
           </button>
 
